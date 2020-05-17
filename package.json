@@ -3,12 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.51",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "coingecko-api": "^1.0.10",
+    "ipfs-http-client": "^33.1.1",
+    "mongodb-stitch-browser-sdk": "^4.8.0",
+    "particles-bg": "^2.5.0",
+    "particlesjs": "^2.2.3",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-web3": "^1.2.0",
+    "web3": "^1.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
