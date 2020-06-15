@@ -97,14 +97,14 @@ class Main extends Component {
   }
 
   getSortedProductsBy(data) {
-    const arts = data
-      .filter((arts) => arts.owner !== this.props.account && !arts.purchased)
-      .reduce((artsSoFar, { name, id }) => {
-        if (!artsSoFar[name]) artsSoFar[name] = [];
-        artsSoFar[name].push(this.props.products[id - 1]);
+    let artsFiltered = data.filter((arts) => arts.owner !== this.props.account && !arts.purchased);
+    
+    let artsReduced = artsFiltered.reduce((artsSoFar, { name, id }, index) => {
+      if (!artsSoFar[name]) artsSoFar[name] = [];
+        artsSoFar[name].push(artsFiltered[index]);
         return artsSoFar;
       }, {});
-    this.setState({ displayArts: arts });
+    this.setState({ displayArts: artsReduced });
   }
 
   filterProducts(selected) {
@@ -221,8 +221,8 @@ class Main extends Component {
         >
           <GridList cellHeight={500} cols={3} style={{ overflowY: "visible" }}>
             {
-              Object.values(this.state.displayArts).map((key, id) => (
-                <ProductCard
+              Object.values(this.state.displayArts).map((key, id) => {
+                return <ProductCard
                   key={id}
                   productId={key[0].id}
                   productName={key[0].name}
@@ -237,7 +237,8 @@ class Main extends Component {
                   isGen={key[0].purchased}
                   cvdRate={this.props.cvdRate}
                 />
-              ))
+              }
+              )
 
               /*this.props.products.filter(arts => arts.owner !== this.props.account && !arts.purchased).map((product, key) => (
               <ProductCard
